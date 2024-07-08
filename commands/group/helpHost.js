@@ -4,7 +4,6 @@ const client = new Discord.Client();
 module.exports = {
   name: 'help',
   description: 'Call the invite code! Host only.',
-  args: true,
   cooldown: 5,
   execute(message, args) {
 

@@ -1,3 +1,5 @@
+/*
+
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
@@ -27,6 +29,8 @@ module.exports = {
 
     message.channel.send(exampleEmbed);
 
+*/
+
     // if(message.member.roles.cache.some(r => r.name === "Host")) {
     //   if (!args.length && args) {
     //     return
@@ -40,7 +44,10 @@ module.exports = {
 //     <@&1256217332376928378>, ${args.join(' ')}`
 //       )
 //     }
+
+/*
   },
 };
+*/
 
 // ${args.join(' ')}

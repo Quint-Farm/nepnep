@@ -1,24 +1,25 @@
 
 const dotenv = require('dotenv');
-dotenv.config();
+	dotenv.config();
 
 const fs = require('fs');
 const Discord = require('discord.js');
 const { prefix, infoprefix } = require('./config.json');
 
-const client = new Discord.Client();
-client.commands = new Discord.Collection();
+	const client = new Discord.Client();
+		client.commands = new Discord.Collection();
+		client.cooldowns = new Discord.Collection();
 
-console.log(process.env.DISCORD_TOKEN);
+	const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commandFolders = fs.readdirSync('./commands');
 
-for (const file of commandFiles) {
-	const command = require(`./commands/${file}`);
-	// set a new item in the Collection
-	// with the key as the command name and the value as the exported module
-
-	client.commands.set(command.name, command);
+for (const folder of commandFolders) {
+	const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
+	for (const file of commandFiles) {
+		const command = require(`./commands/${folder}/${file}`);
+		client.commands.set(command.name, command);
+	}
 }
 
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
@@ -32,118 +33,69 @@ for (const file of eventFiles) {
 	}
 }
 
+
 client.on("message", async message => {
+	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-// Templates
+	const args = message.content.slice(prefix.length).trim().split(/ +/);
+	const commandName = args.shift().toLowerCase();
 
-if (message.content === "PM me") {
-	GuildMemberAdd.send("Meow!")
-}
+	const command = client.commands.get(commandName)
+		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
-if (message.content === "<@&1258314300658024531>") {
-	message.channel.send("Nya?")
-	message.react("🐟")
-}
+	if (!command) return;
 
-	if (message.content === "!schedule") {
-		if (message.member.roles.cache.some(role => role.name === 'Host')) {
-			client.channels.cache.get('1258987230513594398').send(`
-Hello <@&1256217332376928378>, Nepabella here! 
-			Schedule will start soon if alltogether: react or let us know beforehand if you plan to join! ~7AM EST
-	Will postpone otherwise!`).then(reactmessage => {
-				reactmessage.react("👍"),
-					reactmessage.react("👎"),
-					reactmessage.react("🤷")
-			})
+	if (command.guildOnly && message.channel.type === 'dm') {
+		return message.reply('I can\'t execute that command inside DMs!');
+	}
+
+	if (command.permissions) {
+		const authorPerms = message.channel.permissionsFor(message.author);
+		if (!authorPerms || !authorPerms.has(command.permissions)) {
+			return message.reply('You can not do this!');
 		}
 	}
 
-		// if (author.roles.cache.some(role => role.name === 'Host')) {
-		// 	if (message.content === "!schedule") {
-		// 		message.channel.send(`Hello <@&1256217332376928378>, Nepabella here!
-		// 	new schedule will start soon: If anyone will join react accordingly`).then(reactmessage => { 
+	// const argsExceptions = 
 
+	// if (command.args && !args.length) {
+	// 	let reply = `You didn't provide any arguments, ${message.author}!`;
 
+	// 	if (command.usage) {
+	// 		reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
+	// 	}
 
-		// 	})
-		// 	// message.react();
-		// 	// message.react();
+	// 	return message.channel.send(reply);
+	// }
 
+	const { cooldowns } = client;
 
-		// 	}
-	
-	const dms = client.channels.cache.get('1258628125479407616');
-
-	if (message.channel.type === 'dm') {
-		dms.send(message.author.tag + ` ` + message.author.avatarURL() + `: ` + message.content);
+	if (!cooldowns.has(command.name)) {
+		cooldowns.set(command.name, new Discord.Collection());
 	}
 
-	const args = message.content.slice(prefix.length).trim().split(/ +/);
-	const command = args.shift().toLowerCase();
+	const now = Date.now();
+	const timestamps = cooldowns.get(command.name);
+	const cooldownAmount = (command.cooldown || 3) * 1000;
 
-	if (!message.content.startsWith(prefix) || message.author.bot) return;
-	if (!client.commands.has(command)) return;
+	if (timestamps.has(message.author.id)) {
+		const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+
+		if (now < expirationTime) {
+			const timeLeft = (expirationTime - now) / 1000;
+			return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`);
+		}
+	}
+
+	timestamps.set(message.author.id, now);
+	setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
 	try {
-		client.commands.get(command).execute(message, args);
+		command.execute(message, args);
 	} catch (error) {
 		console.error(error);
 		message.reply('there was an error trying to execute that command!');
 	}
-
-});
-
-// Will make individual event file soon.
-
-client.on('guildMemberAdd', member => {
-	console.log('User: ' + member.user.username + ' has 		joined the server!');
-
-
-	// Incase bot is turned off.
-	const userId = (" ");
-	const user = client.users.cache.get(userId);
-	
-	let newRole = member.guild.roles.cache.get("1257558423621468220");
-	let unadmittedRole = member.guild.roles.cache.get("1259312211663392768");
-
-	member.roles.add(newRole);
-	member.roles.add(unadmittedRole);
-
-
-
-	// Send DM
-	member.send(`
-	‎ 
-Meow! 
-
-			I'm Nepabella, one of Quint Farm's cat. :black_cat:
-	And welcome to Quint Farm!
-
-		Before you get started, read https://discord.com/channels/1253265326393786448/1253693713243181136 first and 
-				provide the **2** requested info to this DM or @marimari3215!
-
-
-	And finally enjoy your stay!
-`)
-
-
-	// const someRole = guild.roles.cache.get("1257558423621468220")
-	// member.roles.add(someRole)
-	// const yourNewROLE = guildMember.guild.roles.cache.find(role => role.name === "New!");
-	// guildMember.roles.add(yourNewROLE);
-	// const TestRole = message.guild.roles.cache.get("1257558423621468220");
-	// guildMember.roles.add(TestRole);
-
-	/*
- let welcomeRole = guildMember.guild.roles.cache.find(role => role.name === 'New!');
-
- guildMember.roles.add(welcomeRole);
-
- let aboveRole = message.guild.roles.cache.get("1257558423621468220");
-
- guildMember.roles.add(aboveRole);
-	 */
-
 });
 
 client.login(process.env.DISCORD_TOKEN);
