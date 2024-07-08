@@ -1,6 +1,3 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
-
 module.exports = {
     name: 'prepschedule',
     description: 'Post and have others prepare for game schedule, days beforehand!',
