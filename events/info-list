@@ -1,0 +1,21 @@
+const { infoprefix } = require('./config.json');
+
+module.exports = {
+  name: 'message',
+  execute(message) {
+
+    //     // Host only
+    // const prepschedule = ['prepschedule','schedule', 'announce']
+    // const callinv = []
+    
+    //     // Group only
+    // const weekplay = [ ]
+
+    // if (message.content.includes(prepschedule)){
+    //     for(const val of hayday){
+    //         message.react('😄');
+    //     }
+    // }
+
+  },
+};

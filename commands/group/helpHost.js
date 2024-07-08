@@ -5,7 +5,7 @@ module.exports = {
   name: 'help',
   description: `Nepabella's info-service.`,
   aliases: ['info', 'infoservice', 'info-service', 'infolist', 'info-list'],
-  cooldown: 30,
+  cooldown: 1800,
   execute(message, args) {
 
     const exampleEmbeds = new Discord.MessageEmbed()

@@ -2,7 +2,7 @@ module.exports = {
   name: 'callinv',
   description: 'Call the invite code! Host only.',
   aliases: ['i', 'code', 'icode', 'inv', 'ic'],
-  cooldown: 30,
+  cooldown: 3,
   args: true,
   execute(message, args) {
 
