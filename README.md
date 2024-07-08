@@ -8,3 +8,8 @@ Optional requirements: VS Code.
 2. Type "npm install" in console if using VS code.
 - Type "npm i dotenv", incase missing.
 3. Type "Node ." 
+
+Missing files because of .gitignore:
+Prepare this too.
+- config.json (prefix, infoprefix)
+- token
