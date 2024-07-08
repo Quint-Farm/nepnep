@@ -1,0 +1,21 @@
+{
+  "name": "Javascript-Bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "config.json": "0.0.4",
+    "discord.js": "^12.5.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "fs": "0.0.1-security",
+    "translate-google": "^1.4.3",
+    "verify": "^0.1.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
