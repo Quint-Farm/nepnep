@@ -9,12 +9,23 @@ const { prefix, infoprefix } = require('./config.json');
 	const client = new Discord.Client();
 		client.commands = new Discord.Collection();
 		client.cooldowns = new Discord.Collection();
+		client.rolePerm = new Discord.Collection();
 
 	const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 const commandFolders = fs.readdirSync('./commands');
 
 for (const folder of commandFolders) {
+	const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
+	for (const file of commandFiles) {
+		const command = require(`./commands/${folder}/${file}`);
+		client.commands.set(command.name, command);
+	}
+}
+
+const infoFolders = fs.readdirSync('./commands');
+
+for (const folder of infoFolders) {
 	const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
 	for (const file of commandFiles) {
 		const command = require(`./commands/${folder}/${file}`);
@@ -32,7 +43,6 @@ for (const file of eventFiles) {
 		client.on(event.name, (...args) => event.execute(...args));
 	}
 }
-
 
 client.on("message", async message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -83,7 +93,9 @@ client.on("message", async message => {
 
 		if (now < expirationTime) {
 			const timeLeft = (expirationTime - now) / 1000;
-			return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`);
+			// return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`);
+			// return message.react('✋')
+			return
 		}
 	}
 

@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 module.exports = {
-  name: 'helpgroup',
+  // name: 'helpgroup',
   description: 'Call the invite code! Host only.',
   args: true,
   execute(message, args) {

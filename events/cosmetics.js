@@ -11,5 +11,10 @@ module.exports = {
 	        message.react("🐟")
         }
 
+        if (message.content === "<@1258261514842804276>") {
+            message.channel.send("Meow!")
+            message.react("🐱")
+        }
+
     }
 }

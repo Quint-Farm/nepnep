@@ -3,8 +3,9 @@ const client = new Discord.Client();
 
 module.exports = {
   name: 'help',
-  description: 'Call the invite code! Host only.',
-  cooldown: 5,
+  description: `Nepabella's info-service.`,
+  aliases: ['info', 'infoservice', 'info-service', 'infolist', 'info-list'],
+  cooldown: 30,
   execute(message, args) {
 
     const exampleEmbeds = new Discord.MessageEmbed()

@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'callinv',
+  // name: 'callinv',
   description: 'Call the invite code! Host only.',
   args: true,
   execute(message, args) {

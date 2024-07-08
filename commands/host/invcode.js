@@ -1,10 +1,12 @@
 module.exports = {
   name: 'callinv',
   description: 'Call the invite code! Host only.',
+  aliases: ['i', 'code', 'icode', 'inv', 'ic'],
+  cooldown: 30,
   args: true,
   execute(message, args) {
 
-    if(message.member.roles.cache.some(r => r.name === "Host")) {
+    if(!message.member.roles.cache.some(r => r.name === "Host")) {
       if (!args.length && args) {
         return
       } else 

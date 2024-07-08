@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'invcode',
+  // name: 'invcode',
   description: 'Reveal the invite code!',
   args: true,
   execute(message, args) {

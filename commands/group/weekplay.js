@@ -1,6 +1,9 @@
 module.exports = {
+  rolePerm: 'host',
   name: 'weekplay',
   description: 'Request a meeting schedule for everyone to agree on weekdays!',
+  aliases: ['weekday', 'prepday', 'prepweek', 'reqplay', 'playday'],
+  cooldown: 1800,
   args: true,
   execute(message, args) {
 
