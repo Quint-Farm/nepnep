@@ -1,1 +1,27 @@
 
+# July 9, 2024.
+
+## Notable progress.
+
+##### Server
+- You can now mention every member's color role.
+- Updated play schedule. SAT & SUN, optional Friday. Check events calendar above #play for more info.
+
+##### Nepabella
+- "-help" for Nepabella's commands.
+	Notable commands for Group:
+	- "-weekplay Note?": Pings & request for a weekday or weekplay schedule, words following weekplay is copied by Nep and put in a parenthesis as notes.
+		Not putting notes still posts the same weekplay request.
+		Won't remove pings for now, ruu will just know if it's a bad idea.
+
+- Sets status to playing Stardew Valley when invite code is given or a game session is happening.
+- Neps' DMS can now fully be viewed by ruu like images, unless Nep is offline.
+- Mentions of Nepabella, makes them react & send messages. Say hi to Nepabella!
+- Command cooldowns, some have 30 minute cooldowns like pings.
+- "https://github.com/Quint-Farm/Nepabella", is the repository but won't open for now.
+
+### New changelog
+- Role order in member list no longer seperates 1st gen/wave from other gen/wave. (Now arranged by actual online meaning participation & interaction time, invisible, not seeing pings or messages, & ghosting not counted despite online.)
+
+### Future ideas- 
+- Role order of ruu when prep schedule & post pone schedule.
