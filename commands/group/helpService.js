@@ -12,7 +12,7 @@ module.exports = {
       .setColor('#EFC51E')
       .setTitle('Info list')
       .setURL('https://i.imgur.com/78pPtbV.png')
-      .setAuthor(`Nepabella's info-service.`, 'https://i.imgur.com/78pPtbV.png', 'https://replit.com/@rainedayste/Javascript-Bot#commands/help.js')
+      .setAuthor(`Nepabella's info-service.`, 'https://i.imgur.com/78pPtbV.png', 'https://github.com/Quint-Farm/Nepabella')
       .setDescription('What our local cat can do:')
       .setThumbnail('https://i.imgur.com/JbOnQHD.png')
       // Switchables: .setImage https://i.imgur.com/ujJ1oLZ.png
@@ -31,7 +31,7 @@ module.exports = {
       .setColor('#6b8a7a')
       .setTitle('Info list')
       .setURL('https://i.imgur.com/78pPtbV.png')
-      .setAuthor(`Nepabella's info-service.`, 'https://i.imgur.com/78pPtbV.png', 'https://replit.com/@rainedayste/Javascript-Bot#commands/help.js')
+      .setAuthor(`Nepabella's info-service.`, 'https://i.imgur.com/78pPtbV.png', 'https://github.com/Quint-Farm/Nepabella')
       .setDescription('What our local cat can do:')
       .setThumbnail('https://i.imgur.com/JbOnQHD.png')
       // Switchables: .setImage https://i.imgur.com/ujJ1oLZ.png
@@ -39,7 +39,7 @@ module.exports = {
         { name: 'Showing role for:', value: '<@&1256217332376928378>' },
         { name: '\u214F', value: ' ' },
         { name: ' ', value: ' ', inline: false },
-        { name: '"-weekplay *Note?*"', value: 'Pings and requests a weekday schedule with the notes text appearing as additional info.', inline: true },
+        { name: '"-weekplay *Note?*"', value: 'Pings and requests a weekday schedule with the following text appearing as additional info.', inline: true },
       )
       .addField('"-weekplay"', 'No notes.', true)
       .setImage('https://i.imgur.com/ujJ1oLZ.png')
@@ -52,7 +52,7 @@ module.exports = {
 
     const embedTwo = new Discord.MessageEmbed()
       .setAuthor(`Nepabella's 
-      introductions`, 'https://i.imgur.com/78pPtbV.png', 'https://replit.com/@rainedayste/Javascript-Bot#commands/help.js')
+      introductions`, 'https://i.imgur.com/78pPtbV.png', 'https://github.com/Quint-Farm/Nepabella')
       .setTitle("React for roles:")
       .setDescription(`
 0️⃣ - <@&1258690632491204608>: Entrusted farm handler.
