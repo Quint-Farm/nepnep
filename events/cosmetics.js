@@ -1,7 +1,7 @@
 module.exports = {
     name: 'message',
     execute(message) {
-
+    
         if (message.content === "PM me") {
      	    message.author.send("Meow!")
         }

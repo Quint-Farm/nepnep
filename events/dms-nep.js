@@ -1,10 +1,6 @@
-const { DMChannel } = require("discord.js");
-
 module.exports = {
 	name: 'message',
 	execute(message) {
-
-        let beenRunning;
         const dms = message.client.channels.cache.get('1258628125479407616');
 
         if (message.channel.type === 'dm') {
