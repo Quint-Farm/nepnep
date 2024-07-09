@@ -11,7 +11,7 @@ module.exports = {
 	*/
 	
 	let newRole = member.guild.roles.cache.get("1257558423621468220");
-	let unadmittedRole = member.guild.roles.cache.get("1259312211663392768");
+	// let unadmittedRole = member.guild.roles.cache.get("1259312211663392768");
 
 	member.roles.add(newRole);
 	member.roles.add(unadmittedRole);
