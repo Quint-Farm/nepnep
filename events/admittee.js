@@ -1,11 +1,14 @@
 module.exports = {
-	name: 'admittee',
-    execute(guildMemberAdd, member) {
+	name: 'guildMemberAdd',
+    execute(member, client) {
     console.log('User: ' + member.user.username + ' has joined the server!');
 
 	// Incase bot is turned off.
+	
+	/*
 	const userId = (" ");
 	const user = client.users.cache.get(userId);
+	*/
 	
 	let newRole = member.guild.roles.cache.get("1257558423621468220");
 	let unadmittedRole = member.guild.roles.cache.get("1259312211663392768");
