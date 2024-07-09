@@ -8,7 +8,7 @@ module.exports = {
     if(message.member.roles.cache.some(r => r.name === "Host")) {
       if (!args.length && args) {
         message.client.user.setActivity(null);
-        message.channel.send(`
+        return message.channel.send(`
 <@&1258690632491204608> ended the session! 
     Hope everyone enjoyed!`);
       } else
