@@ -23,22 +23,3 @@ Meow!
         `)
     },
 };
-
-
-
-	// const someRole = guild.roles.cache.get("1257558423621468220")
-	// member.roles.add(someRole)
-	// const yourNewROLE = guildMember.guild.roles.cache.find(role => role.name === "New!");
-	// guildMember.roles.add(yourNewROLE);
-	// const TestRole = message.guild.roles.cache.get("1257558423621468220");
-	// guildMember.roles.add(TestRole);
-
-	/*
- let welcomeRole = guildMember.guild.roles.cache.find(role => role.name === 'New!');
-
- guildMember.roles.add(welcomeRole);
-
- let aboveRole = message.guild.roles.cache.get("1257558423621468220");
-
- guildMember.roles.add(aboveRole);
-	 */

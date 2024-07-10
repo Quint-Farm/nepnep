@@ -3,6 +3,7 @@ module.exports = {
   description: `End the session, sets Nepabella's status to normal! Host only.`,
   aliases: ['sessionend', 'es', 'end', 'sessionover', 'over'],
   args: true,
+  guildOnly: true,
   execute(message, args) {
 
     if(message.member.roles.cache.some(r => r.name === "Host")) {

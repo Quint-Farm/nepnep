@@ -3,6 +3,7 @@ module.exports = {
     description: 'Post and have others prepare for game schedule, days beforehand!',
     aliases: ['schedule', 'announce'],
     args: true,
+    guildOnly: true,
     execute(message,args,client) {
 
         const targetChannel = message.client.channels.cache.get('1258987230513594398');

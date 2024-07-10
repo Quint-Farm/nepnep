@@ -6,6 +6,7 @@ module.exports = {
   description: 'Call the invite code! Host only.',
   aliases: ['i', 'code', 'icode', 'inv', 'ic'],
   args: true,
+  guildOnly: true,
   cooldown: -1800,
   execute(message, args) {
 

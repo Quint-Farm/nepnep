@@ -5,6 +5,7 @@ module.exports = {
   name: 'help',
   description: `Nepabella's info-service.`,
   aliases: ['info', 'infoservice', 'info-service', 'infolist', 'info-list', 'helpService', 'helpinfo'],
+  guildOnly: true,
   cooldown: 1800,
   execute(message, args) {
 

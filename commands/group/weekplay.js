@@ -3,8 +3,9 @@ module.exports = {
   name: 'weekplay',
   description: 'Request a meeting schedule for everyone to agree on weekdays!',
   aliases: ['weekday', 'prepday', 'prepweek', 'reqplay', 'playday'],
-  cooldown: 1800,
+  guildOnly: true,
   args: true,
+  cooldown: 1800,
   execute(message, args) {
 
     const author = message.author;
