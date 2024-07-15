@@ -18,8 +18,9 @@ ${message.author} requested for a weekday schedule!
 `).then(reactmessage => {
         reactmessage.react("1️⃣"),
           reactmessage.react("2️⃣"),
-          reactmessage.react("3️⃣")
+          reactmessage.react("3️⃣"),
         reactmessage.react("4️⃣"),
+        reactmessage.react("5️⃣"),
           reactmessage.react("🤷")
       }) 
   }
@@ -31,9 +32,9 @@ ${message.author} requested for a weekday schedule!
     `).then(reactmessage => {
     reactmessage.react("1️⃣"),
       reactmessage.react("2️⃣"),
-      reactmessage.react("3️⃣")
+      reactmessage.react("3️⃣"),
     reactmessage.react("4️⃣"),
-    reactmessage.react("5️⃣")
+    reactmessage.react("5️⃣"),
       reactmessage.react("🤷")
   })
 

@@ -1,7 +1,7 @@
 module.exports = {
   name: 'endsession',
   description: `End the session, sets Nepabella's status to normal! Host only.`,
-  aliases: ['sessionend', 'es', 'end', 'sessionover', 'over'],
+  aliases: ['sessionend', 'es', 'end', 'sessionover', 'over', 'playover', 'po'],
   args: true,
   guildOnly: true,
   execute(message, args) {

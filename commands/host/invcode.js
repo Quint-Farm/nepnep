@@ -19,7 +19,7 @@ module.exports = {
         message.client.user.setPresence({ activity: { name: 'Stardew Valley' }, status: 'online' });
         message.channel.send(`
 <@&1258690632491204608> declared an invite code!
-    <@&1256217332376928378>, ${args.join(' ')}`
+    <@&1260870229479784558>, ${args.join(' ')}`
       )
   
     }
