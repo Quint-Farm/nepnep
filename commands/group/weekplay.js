@@ -8,12 +8,12 @@ module.exports = {
   cooldown: 1800,
   execute(message, args) {
 
-    const author = message.author;
+    const targetChannel = message.client.channels.cache.get('1253265326393786451');
 
     if (!args.length && args) {
-      return message.channel.send(`
+      return targetChannel.send(`
 ${message.author} requested for a weekday schedule!
-    <@&1256217332376928378>, decide which day you're free!
+    Decide which day you're free!
 1. Monday 2.Tuesday 3. Wednesday 4. Thursday 5. Friday
 `).then(reactmessage => {
         reactmessage.react("1️⃣"),
@@ -25,9 +25,9 @@ ${message.author} requested for a weekday schedule!
       }) 
   } else
 
-    message.channel.send(`
+    targetChannel.send(`
 ${message.author} requested for a weekday schedule!
-      <@&1256217332376928378>, decide which day you're free in their timezone (${args.join(' ')}).
+      Decide which day you're free in their timezone (${args.join(' ')}).
 1. Monday 2.Tuesday 3. Wednesday 4. Thursday 5. Friday
     `).then(reactmessage => {
     reactmessage.react("1️⃣"),
