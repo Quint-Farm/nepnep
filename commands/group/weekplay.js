@@ -23,7 +23,7 @@ ${message.author} requested for a weekday schedule!
         reactmessage.react("5️⃣"),
           reactmessage.react("🤷")
       }) 
-  }
+  } else
 
     message.channel.send(`
 ${message.author} requested for a weekday schedule!

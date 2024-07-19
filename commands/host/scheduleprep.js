@@ -17,9 +17,9 @@ Hello <@&1260870229479784558>, Nepabella here!
                 reactmessage.react("👍"),
                     reactmessage.react("👎"),
                     reactmessage.react("🤷")
-            })
-        } else 
-			messag.channel.send(`
+                })
+            } else 
+			    message.channel.send(`
 Hello <@&1260870229479784558>, Nepabella here! 
 			Schedule will start soon if alltogether: react or let us know beforehand if you plan to join! ~${args.join(' ')}
 	Will postpone otherwise!`).then(reactmessage => {
