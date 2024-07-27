@@ -13,8 +13,8 @@ module.exports = {
                 return
             } else 
             message.channel.send(`
- Hello <@&1260870229479784558>, Nepabella here! 
-            Next schedule starts ${args.join(' ')}: react or let us know beforehand if you plan to join!
+ Meow! @here.
+            Next schedule starts ${args.join(' ')}: let us know beforehand if you plan to join!
     Will postpone otherwise!`).then(reactmessage => {
                                 reactmessage.react("👍"),
                                     reactmessage.react("👎"),
